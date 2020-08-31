@@ -1,8 +1,36 @@
-
 class movieList extends React.Component{
+    
+    // state = {
+    //     count: 0
+    // }
+
+    constructor(props){
+        super(props)
+        this.state = {
+            count: 0
+        }
+    }
+
+    increment = ()=> {
+        // const count = this.state.count;
+        const {count} = this.state;
+        this.setState({count: count+1});
+    }
+    
+
+    decrement = ()=> {
+        const {count} = this.state;
+        this.setState({count: count-1});
+    }
     render(){
         return(
             <>
+                <div>
+                    <button onClick={this.increment} className="btn btn-primary">Increment Number</button>
+                    <button onClick={this.decrement} className="btn btn-primary">Decrement Number</button>
+
+                    <h1>{this.state.count}</h1>
+                </div>
                 <div className="col-lg-4 col-md-6 mb-4">
                     <div className="card h-100">
                     <a href="#"><img className="card-img-top" src="http://placehold.it/700x400" alt="" /></a>
