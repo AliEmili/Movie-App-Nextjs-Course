@@ -9,9 +9,10 @@ class movieList extends React.Component{
         this.state = {
             count: 0
         }
+        this.increment = this.increment.bind(this);
     }
 
-    increment = ()=> {
+    increment() {
         // const count = this.state.count;
         const {count} = this.state;
         this.setState({count: count+1});
