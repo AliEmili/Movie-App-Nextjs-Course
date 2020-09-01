@@ -12,7 +12,7 @@ class movieList extends React.Component{
         // this.increment = this.increment.bind(this);
     }
 
-    increment() {
+    increment = ()=>{
         // const count = this.state.count;
         const {count} = this.state;
         this.setState({count: count+1});
@@ -27,7 +27,7 @@ class movieList extends React.Component{
         return(
             <>
                 <div>
-                    <button onClick={()=>this.increment()} className="btn btn-primary">Increment Number</button>
+                    <button onClick={this.increment} className="btn btn-primary">Increment Number</button>
                     <button onClick={this.decrement} className="btn btn-primary">Decrement Number</button>
 
                     <h1>{this.state.count}</h1>
