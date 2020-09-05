@@ -5,9 +5,12 @@ import Carousel from "../components/carousel"
 import MovieList from "../components/movieList";
 import Footer from "../components/footer";
 import {getMovies} from "../actions";
-
+import {useState} from "react";
 export default function Home() {
-  const movies = getMovies();
+  const [movies, setMovies] = useState([]);
+  getMovies().then((movies)=>{
+    setMovies(movies);
+  })
     return ( 
     <div>
         <Head>
