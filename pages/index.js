@@ -64,13 +64,22 @@ import {useState, useEffect} from "react";
 // }
 
 class Home extends React.Component {
-  constructor(props){
-    super(props);
-    this.state  = {
-      movies: [],
-      errorMessage: ''
+
+  static async getInitialProps(){
+    const movies = await getMovies();
+
+    return {
+      movies
     }
   }
+
+  // constructor(props){
+  //   super(props);
+  //   this.state  = {
+  //     movies: [],
+  //     errorMessage: ''
+  //   }
+  // }
   
 
   // called only once when component is mounted
@@ -78,17 +87,19 @@ class Home extends React.Component {
   //   const movies = await getMovies();
   //   this.setState({movies})
   // }
-  componentDidMount(){
-    getMovies()
-      .then((movies)=> {
-      this.setState({movies})
-      })
-      .catch((err)=>{
-        this.setState({errorMessage: err});
-      })
-  }
+
+  // calld only on client
+  // componentDidMount(){
+  //   getMovies()
+  //     .then((movies)=> {
+  //     this.setState({movies})
+  //     })
+  //     .catch((err)=>{
+  //       this.setState({errorMessage: err});
+  //     })
+  // }
   render(){
-    const {movies, errorMessage} = this.state;
+    const {movies} = this.props;
     return ( 
       <div>
           <Head>
@@ -110,9 +121,9 @@ class Home extends React.Component {
               <div className="col-lg-9">
                 <Carousel />
                 <div className="row">
-                  {errorMessage && 
+                  {/* {errorMessage && 
                   <div className="alert alert-danger" role="alert">{errorMessage}</div>
-                  }
+                  } */}
                   <MovieList movies={movies} />
                 </div>
               </div>
