@@ -4,9 +4,9 @@
 // 2.reusabl components
 // 3.presentational components, partially 
 
-// const About = () => (
-//     <h1>Hello arrow About Page</h1>
-// )
+const About = () => (
+    <h1>Hello arrow About Page</h1>
+)
 
 
 
