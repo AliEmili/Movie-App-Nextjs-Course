@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import App from "next/app";
 function MyApp({ Component, pageProps }) {
   return (
     <div>
@@ -26,6 +27,14 @@ function MyApp({ Component, pageProps }) {
         </style>
     </div>
   )
+}
+
+MyApp.getInitialProps = async (appContext) => {
+  // execution getinitialprops of page you are navigated to
+  const appProps = await App.getInitialProps(appContext);
+  return{
+    ...appProps
+  }
 }
 
 export default MyApp
