@@ -4,7 +4,8 @@ import MovieList from "../components/movieList";
 import {getMovies} from "../actions";
 // import {useState, useEffect} from "react";
 
-function Home(props) {  
+function Home(props) {
+    const {images} = props;
     return ( 
     <div>
       <div className="home-page">
@@ -16,7 +17,7 @@ function Home(props) {
                 />
             </div>
             <div className="col-lg-9">
-              <Carousel />
+              <Carousel images={images} />
               <div className="row">
                 <MovieList movies={props.movies} />
               </div>
@@ -30,9 +31,17 @@ function Home(props) {
 
 Home.getInitialProps= async () =>{
   const movies = await getMovies();
+  const images = movies.map((movie)=>{
+    return {
+      id: `image-${movie.id}`,
+      image: movie.image
+    }
+  });
+
 
   return {
-    movies
+    movies,
+    images
   }
 }
 
