@@ -33,6 +33,15 @@ const MOVIE_DATA = [{
     }
 ]
 
+const CATEGORY_DATA = [
+    {id: '1', name: 'drama'},
+    {id: '2', name: 'action'},
+    {id: '3', name: 'adventure'},
+    {id: '4', name: 'historical'},
+]
+
+
+
 export const getMovies = () => {
 
     return new Promise((resolve, reject) => {
@@ -53,5 +62,14 @@ export const getMovieById = (id) => {
         setTimeout(() => {
             resolve(movie);
         }, 50);
+    })
+}
+
+export const getCategories = () => {
+    return new Promise((resolve,reject)=> {
+        setTimeout(()=>{
+            resolve(CATEGORY_DATA);
+            reject('cannot fetch categories');
+        },50)
     })
 }
