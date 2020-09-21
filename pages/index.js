@@ -19,7 +19,7 @@ function Home({images,categories, movies}) {
             <div className="col-lg-9">
               <Carousel images={images} />
               <div className="row">
-                <MovieList movies={movies} />
+                <MovieList movies={movies || []} />
               </div>
             </div>
           </div>
