@@ -1,10 +1,14 @@
 import Modal from "./modal";
+import MovieCreateForm from "./movieCreateForm";
 
+// Containment
 const sideMenu = (props)=> {
     const {categories} = props;
     return(
         <div>
-            <Modal />
+            <Modal>
+                <MovieCreateForm />
+            </Modal>
             <h1 className="my-4">{props.appName}</h1>
             <div className="list-group">
                 {categories.map((category)=>{

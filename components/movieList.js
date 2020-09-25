@@ -31,7 +31,7 @@ class movieList extends React.Component{
                     <style>
                     {`
                         .img-container{
-                            max-height: 185px;
+                            max-height: 185px !important;
                         }
                         img {
                             height: 100%
