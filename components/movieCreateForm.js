@@ -2,8 +2,12 @@ import {useState} from 'react';
 
 const MovieCreateForm = (props) => {
     const [form, setForm] = useState({
-        name: 'some movie',
-        description: 'some description'
+        name: '',
+        description: '',
+        rating: '',
+        image: '',
+        cover: '',
+        longDesc: ''
     });
 
     const handleChange = (event) => {
@@ -68,10 +72,12 @@ const MovieCreateForm = (props) => {
                 <input 
                     value={form.rating}
                     onChange={handleChange}
-                    type="number" 
-                    name="rating" 
-                    max="5" 
+                    name="rating"
+                    maxLength="1" 
+                    size="1"
                     min="0" 
+                    max="5" 
+                    type="number" 
                     className="form-control" 
                     id="rating" 
                     placeholder="3" />
