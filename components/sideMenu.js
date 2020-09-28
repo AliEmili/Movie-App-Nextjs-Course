@@ -8,7 +8,8 @@ const sideMenu = (props)=> {
 
     const handleCreateMovie = (movie) => {
         createMovie(movie).then((movies)=> {
-            modal.closeModal()
+            console.log(JSON.stringify(movies));
+            modal.closeModal();
         })
     }
     return(
