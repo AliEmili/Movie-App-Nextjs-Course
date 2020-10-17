@@ -1,15 +1,17 @@
 import Modal from "./modal";
 import MovieCreateForm from "./movieCreateForm";
 import {createMovie} from "../actions";
+import {useRouter} from "next/router";
 // Containment
 const sideMenu = (props)=> {
     const {categories} = props;
+    const router = useRouter();
     let modal = null
 
     const handleCreateMovie = (movie) => {
         createMovie(movie).then((movies)=> {
-            console.log(JSON.stringify(movies));
             modal.closeModal();
+            router.push('/');
         })
     }
     return(
