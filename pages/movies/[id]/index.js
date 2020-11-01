@@ -22,6 +22,7 @@ const Movie = (props) => {
                 <p>{movie.genre}</p>
                 <button className="btn btn-primary btn-lg mr-1" href="#" role="button">Learn more</button>
                 <button onClick={()=> handleDeleteMovie(id)} className="btn btn-danger btn-lg" href="#" role="button">Delete</button>
+                <button onClick={()=> router.push(`/movies/${id}/edit`)} className="btn btn-warning btn-lg" href="#" role="button">Edit</button>
             </div>
             <p className="desc-text">
                 {movie.longDesc}
