@@ -17,7 +17,10 @@ const sideMenu = (props)=> {
     return(
         <div>
             <Modal ref={ele => modal = ele} hasSubmit={false}>
-                <MovieCreateForm handleFormSubmit={handleCreateMovie} />
+                <MovieCreateForm
+                    handleFormSubmit={handleCreateMovie} 
+                    submitButton="Create"
+                />
             </Modal>
             <h1 className="my-4">{props.appName}</h1>
             <div className="list-group">
