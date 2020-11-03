@@ -2,9 +2,13 @@ import SideMenu from "../components/sideMenu";
 import Carousel from "../components/carousel"
 import MovieList from "../components/movieList";
 import {getMovies, getCategories} from "../actions";
-// import {useState, useEffect} from "react";
+import {useState} from "react";
 
 function Home({images,categories, movies}) {
+    const [filter, setFilter] = useState('');
+    const changeCategory = (category) => {
+      setFilter(category);
+    }
     return ( 
     <div>
       <div className="home-page">
@@ -14,10 +18,13 @@ function Home({images,categories, movies}) {
               <SideMenu 
                 appName={"Movie DB"}
                 categories={categories}
+                activeCategory={filter}
+                changeCategory={changeCategory}
                 />
             </div>
             <div className="col-lg-9">
               <Carousel images={images} />
+              <h1>Displaying {filter} movies</h1>
               <div className="row">
                 <MovieList movies={movies || []} />
               </div>

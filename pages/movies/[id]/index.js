@@ -13,6 +13,7 @@ const Movie = (props) => {
         })
     }
 
+
     return(
         <div className="container">
             <div className="jumbotron">
