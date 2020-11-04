@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import App from "next/app";
+import '../styles/index.scss';
 function MyApp({ Component, pageProps }) {
   return (
     <div>
@@ -21,7 +22,8 @@ function MyApp({ Component, pageProps }) {
         <style>
           {`
             .base-page{
-              padding-top: 80px;
+              padding-top: 100px;
+              padding-bottom: 200px
             }
           `}
         </style>
