@@ -80,7 +80,9 @@ app.prepare().then(() => {
             return res.json(movie);
         })
     });
-
+    server.post('*', (req, res) => {
+        return handle(req, res);
+    })
 
     const PORT = process.env.PORT || 3000;
 
