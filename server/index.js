@@ -1,7 +1,7 @@
 const next = require('next');
 const express = require('express');
 const bodyParser = require('body-parser');
-
+var cors = require('cors');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -15,24 +15,7 @@ app.prepare().then(() => {
 
     const server = express();
     server.use(bodyParser.json());
-    server.use(function (req, res, next) {
-
-        // Website you wish to allow to connect
-        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
-    
-        // Request methods you wish to allow
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    
-        // Request headers you wish to allow
-        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    
-        // Set to true if you need the website to include cookies in the requests sent
-        // to the API (e.g. in case you use sessions)
-        res.setHeader('Access-Control-Allow-Credentials', true);
-    
-        // Pass to next layer of middleware
-        next();
-    });
+    server.use(cors());
     server.get('/api/v1/movies', (req, res) => {
         return res.json(moviesData);
     });
