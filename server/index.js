@@ -1,7 +1,7 @@
 const next = require('next');
+var cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
-var cors = require('cors');
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -14,8 +14,9 @@ const moviesData = require(filePath);
 app.prepare().then(() => {
 
     const server = express();
-    server.use(bodyParser.json());
     server.use(cors());
+    server.options('*', cors());
+    server.use(bodyParser.json());
     server.get('/api/v1/movies', (req, res) => {
         return res.json(moviesData);
     });
